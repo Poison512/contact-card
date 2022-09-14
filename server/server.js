@@ -1,15 +1,14 @@
 const express = require('express');
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
-app.use(express.static('../client/'));
-app.use(express.urlencoded({ extended: true}));
+app.use(express.static('../client/dist/'));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-`app.use(express.static(’../client/dist/’))`
 
 require('./routes/htmlRoutes.js')(app);
 
 app.listen(PORT, function() {
-    console.log(`Now listening on port: ${PORT}`);
+  console.log(`Now listening on port: ${PORT}`);
 });
